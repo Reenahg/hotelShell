@@ -1,9 +1,19 @@
 export class Hotel {
   public guests: any[] = [];
+  
 
   constructor(_rooms: number) {}
 
-  static checkInGuest(guest: { name: string }){
-    console.log("check in guest here!")
+  public checkInGuest(guest: { name: string }) : boolean{
+    
+    if(this.guests.includes(guest)){
+      return false;
+    }
+    else{
+      this.guests.push(guest);
+      return true;
+    }
+   
+  
   }
 }

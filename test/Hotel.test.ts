@@ -4,20 +4,39 @@ import {Hotel} from "../src/Hotel";
 
 describe("Hotel", () => {
   let hotel;
+  const name = Random.string();
+
 
   beforeEach(() => {
     hotel = new Hotel(100);
   });
 
-  describe("start as an empty docking station", () => {
+  describe("start as an empty hotel", () => {
     it ('should be created with no guests', () => {
       expect(hotel.guests).to.eql([])
     });
 
     it ('should check in a new guest', () => {
-      const name = Random.string();
-      Hotel.checkInGuest({name});
+    
+      hotel.checkInGuest({name});
       expect(hotel.guests).to.eql([{name}]);
     });
+    
+    it ('should check in second guest', () => {
+      
+      const name2 = Random.string()
+      hotel.checkInGuest({name});
+      hotel.checkInGuest({name: name2});
+      expect(hotel.guests).to.eql([{name}, {name: name2}]);
+    });
+
+    it ('shouldnot allow to check in same guest again', () => {
+      const guest = {name};
+      hotel.checkInGuest(guest);
+      expect(hotel.checkInGuest(guest)).to.eq(false);
+      expect(hotel.guests).to.eql([guest]);
+    });
+
+      
   });
 });
