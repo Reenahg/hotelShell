@@ -8,7 +8,7 @@ describe("Hotel", () => {
 
 
   beforeEach(() => {
-    hotel = new Hotel(100);
+    hotel = new Hotel(10);
   });
 
   describe("start as an empty hotel", () => {
@@ -36,6 +36,18 @@ describe("Hotel", () => {
       expect(hotel.checkInGuest(guest)).to.eq(false);
       expect(hotel.guests).to.eql([guest]);
     });
+
+    it ('shouldnot allow to check in if there are no free rooms', () => {
+    
+      var i;
+      for(i=0;i<10;i++)
+      {
+      const guest = Random.string()
+      hotel.checkInGuest({name:guest});
+      }
+      const guest11 = Random.string()
+      expect(hotel.checkInGuest({name:guest11})).to.eq(false);
+  });
 
       
   });
