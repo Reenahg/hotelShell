@@ -6,12 +6,11 @@ describe("Hotel", () => {
   let hotel;
   const name = Random.string();
 
-
-  beforeEach(() => {
-    hotel = new Hotel(10);
-  });
-
   describe("start as an empty hotel", () => {
+    beforeEach(() => {
+      hotel = new Hotel(10);
+    });
+
     it ('should be created with no guests', () => {
       expect(hotel.guests).to.eql([])
     });
@@ -49,6 +48,22 @@ describe("Hotel", () => {
       expect(hotel.checkInGuest({name:guest11})).to.eq(false);
   });
 
+  // it ('should check in a new guest and update room numbers', () => {
+
+  //   hotel.checkInGuest({name});
+  //   expect(hotel.guests).to.eql([{name}]);
+  // });
+
+
+  it ('should check out the guest', () => {
+    const guest = {name};
+    hotel.checkInGuest(guest)
+    const name2 = Random.string()
+    hotel.checkInGuest({name:name2})
+    expect(hotel.guests.length).to.eql(2);
+     hotel.checkOutGuest(guest);
+    expect(hotel.guests).to.eql([{name:name2}]);
+  });
       
   });
 });
