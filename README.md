@@ -7,14 +7,15 @@
 ### Features to add: 
 
 #### Checking In 
-- [ ] Confirm a stay for tonight and update the hotel
-- [ ] Don't allow the same guest to check in more than once (throw an error?)
-- [ ] Don't allow a guest to check in if there are no free rooms
-- [ ] BONUS: Consider refactoring your 'checkIn' function 
+- [x] Confirm a stay for tonight and update the hotel
+- [x] Don't allow the same guest to check in more than once (throw an error?)
+- [x] Don't allow a guest to check in if there are no free rooms
+- [x] BONUS: Consider reactoring your 'checkIn' function 
 
 #### Check out
-- [ ] On checking out a guest, update the hotel system to record the free room
+- [x] On checking out a guest, update the hotel system to record the free room
 - [ ] Request payment from the guest on checkout
+- [ ] Refactor checkout (mdn (find? filter?))
 
 #### Guests
 - [ ] Store guests' names and dietary requirements eg vegetarian, nut allergy etc. 
